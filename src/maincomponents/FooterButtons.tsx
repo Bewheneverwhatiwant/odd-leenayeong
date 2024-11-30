@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
 import Modal from '../components/Modal.tsx';
+import Modal_copy from '../components/Modal_copy.tsx';
+
 import StyledImg from '../components/StyledImg.tsx';
 import CustomRow from '../components/CustomRow.tsx';
 import CustomButton from '../components/CustomButton.tsx';
@@ -20,18 +22,22 @@ const ButtonGroup = styled.div`
 
 function FooterButtons() {
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isCopyModalOpen, setIsCopyModalOpen] = useState(false);
 
 	const openModal = () => setIsModalOpen(true);
 	const closeModal = () => setIsModalOpen(false);
+
+	const openCopyModal = () => setIsCopyModalOpen(true);
+	const closeCopyModal = () => setIsCopyModalOpen(false);
 
 	const handleShareMeClick = () => {
 		const textToCopy = "https://odd-nayeong.vercel.app/";
 
 		navigator.clipboard.writeText(textToCopy).then(() => {
-			alert("링크가 클립보드에 복사되었습니다!");
+			setIsCopyModalOpen(true);
 		}).catch((err) => {
 			console.error("텍스트 복사 실패:", err);
-			alert("링크 복사에 실패했습니다.");
+			alert("링크 복사에 실패했어요. lny021102@gmail.com으로 오류를 알려주세요.");
 		});
 	};
 
@@ -58,6 +64,7 @@ function FooterButtons() {
 			</ButtonGroup>
 
 			<Modal isOpen={isModalOpen} onClose={closeModal} />
+			<Modal_copy isOpen={isCopyModalOpen} onClose={closeCopyModal} />
 		</FooterWrapper>
 	);
 }
