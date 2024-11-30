@@ -27,7 +27,6 @@ function FooterButtons() {
 	const openModal = () => setIsModalOpen(true);
 	const closeModal = () => setIsModalOpen(false);
 
-	const openCopyModal = () => setIsCopyModalOpen(true);
 	const closeCopyModal = () => setIsCopyModalOpen(false);
 
 	const handleShareMeClick = () => {
