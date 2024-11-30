@@ -3,6 +3,7 @@ import styled from 'styled-components';
 interface CustomColumnProps {
 	$width?: string;
 	$height?: string;
+	$minHeight?: string;
 	$gap?: string;
 	$alignitems?: string;
 	$justifycontent?: string;
@@ -15,6 +16,7 @@ const CustomColumn = styled.div<CustomColumnProps>`
   flex-direction: column;
   width: ${(props) => props.$width || 'auto'};
   height: ${(props) => props.$height || 'auto'};
+  min-height: ${(props) => props.$minHeight || "100vh"};
   gap: ${(props) => props.$gap || '30px'};
   align-items: ${(props) => props.$alignitems || 'center'};
   justify-content: ${(props) => props.$justifycontent || 'center'};
